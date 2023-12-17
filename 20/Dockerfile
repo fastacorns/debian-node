@@ -23,7 +23,11 @@ WORKDIR /site
 # Install latest security upgrades, and crucial runtimes.
 RUN apt-get update \
     && apt-get install -y \
+        awscli \
         build-essential \
+        docker \
+        git \
+        jq \
         python3 \
     && rm -rf /var/lib/apt/lists/* \
     && rm -rf /opt/yarn* \
