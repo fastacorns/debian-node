@@ -27,11 +27,13 @@ RUN apt-get update \
         awscli \
         build-essential \
         ca-certificates \
+        gettext \
         git \
         gnupg \
         jq \
         python3 \
         sudo \
+    && cp /usr/bin/envsubst /usr/local/bin/envsubst \
     && rm -rf /var/lib/apt/lists/* \
     && rm -rf /opt/yarn* \
     && rm -rf /root/.npm \
