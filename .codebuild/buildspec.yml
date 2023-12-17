@@ -1,0 +1,29 @@
+version: 0.2
+
+env:
+  variables:
+    REPOSITORY_NAME: "bluecario/debian-node"
+
+phases:
+    pre_build:
+      commands:
+        - AWS_ACCOUNT_ID=$(aws sts get-caller-identity --query 'Account' --output text)
+        - REPOSITORY_URI=$AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$REPOSITORY_NAME
+        - echo Logging in to Amazon ECR...
+        - aws ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username AWS --password-stdin $REPOSITORY_URI
+        - echo Logging in to Docker Hub...
+        - echo $DOCKERHUB_PASSWORD | docker login --username $DOCKERHUB_USERNAME --password-stdin
+    build:
+      commands:
+        - echo Build started on `date`
+        - echo Building the node 20 base image...
+        - docker build --target "base" --tag "$REPOSITORY_NAME:20-base" 20
+        - docker tag "$REPOSITORY_NAME:20-base" $REPOSITORY_URI:20-base
+        - docker push $REPOSITORY_URI:20-base
+        - echo Building the node 20 build image...
+        - docker build --target "build" --tag "$REPOSITORY_NAME:20-build" 20
+        - docker tag "$REPOSITORY_NAME:20-build" $REPOSITORY_URI:20-build
+        - docker push $REPOSITORY_URI:20-build
+    post_build:
+      commands:
+        - echo Build completed on `date`
