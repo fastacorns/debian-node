@@ -2,7 +2,7 @@ version: 0.2
 
 env:
   variables:
-    REPOSITORY_NAME: "bluecario/debian-node"
+    REPOSITORY_NAME: "fastacorns/debian-node"
 
 phases:
     pre_build:
