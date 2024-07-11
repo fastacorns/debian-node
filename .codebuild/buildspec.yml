@@ -16,14 +16,14 @@ phases:
     build:
       commands:
         - echo Build started on `date`
-        - echo Building the node 20 base image...
-        - docker build --target "base" --tag "$REPOSITORY_NAME:20-base" 20
-        - docker tag "$REPOSITORY_NAME:20-base" $REPOSITORY_URI:20-base
-        - docker push $REPOSITORY_URI:20-base
-        - echo Building the node 20 build image...
-        - docker build --target "build" --tag "$REPOSITORY_NAME:20-build" 20
-        - docker tag "$REPOSITORY_NAME:20-build" $REPOSITORY_URI:20-build
-        - docker push $REPOSITORY_URI:20-build
+        - echo Building the node 22 base image...
+        - docker build --target "base" --tag "$REPOSITORY_NAME:22-base" 22
+        - docker tag "$REPOSITORY_NAME:22-base" $REPOSITORY_URI:22-base
+        - docker push $REPOSITORY_URI:22-base
+        - echo Building the node 22 build image...
+        - docker build --target "build" --tag "$REPOSITORY_NAME:22-build" 22
+        - docker tag "$REPOSITORY_NAME:22-build" $REPOSITORY_URI:22-build
+        - docker push $REPOSITORY_URI:22-build
     post_build:
       commands:
         - echo Build completed on `date`
