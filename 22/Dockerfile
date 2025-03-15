@@ -10,7 +10,7 @@ RUN apt-get update \
     && apt-get install -y \
         curl \
     && rm -rf /var/lib/apt/lists/* \
-    && npm --global install npm pm2 npx \
+    && npm --global install npm pm2 npx prisma \
     && rm -rf /opt/yarn* \
     && rm -rf /root/.npm \
     && rm -rf /tmp/*
