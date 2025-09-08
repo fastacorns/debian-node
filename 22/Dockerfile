@@ -9,6 +9,7 @@ RUN apt-get update \
     && apt-get upgrade -y \
     && apt-get install -y \
         curl \
+        ghostscript \
     && rm -rf /var/lib/apt/lists/* \
     && npm --global install npm pm2 npx prisma \
     && rm -rf /opt/yarn* \
@@ -29,7 +30,6 @@ RUN apt-get update \
         build-essential \
         ca-certificates \
         gettext \
-        ghostscript \
         git \
         gnupg \
         jq \
