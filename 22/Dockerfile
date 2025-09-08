@@ -29,6 +29,7 @@ RUN apt-get update \
         build-essential \
         ca-certificates \
         gettext \
+        ghostscript \
         git \
         gnupg \
         jq \
