@@ -10,6 +10,8 @@ RUN apt-get update \
     && apt-get install -y \
         curl \
         ghostscript \
+        poppler-utils \
+        qpdf \
     && rm -rf /var/lib/apt/lists/* \
     && npm --global install npm pm2 npx prisma \
     && rm -rf /opt/yarn* \
