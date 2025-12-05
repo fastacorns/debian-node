@@ -28,7 +28,6 @@ WORKDIR /site
 RUN apt-get update \
     && apt-get upgrade -y \
     && apt-get install -y \
-        awscli \
         build-essential \
         ca-certificates \
         gettext \
@@ -37,6 +36,11 @@ RUN apt-get update \
         jq \
         python3 \
         sudo \
+        unzip \
+    && curl "https://awscli.amazonaws.com/awscli-exe-linux-aarch64.zip" -o "/tmp/awscliv2.zip" \
+    && unzip /tmp/awscliv2.zip -d /tmp \
+    && /tmp/aws/install \
+    && rm -rf /tmp/aws* \
     && cp /usr/bin/envsubst /usr/local/bin/envsubst \
     && rm -rf /var/lib/apt/lists/* \
     && rm -rf /opt/yarn* \
