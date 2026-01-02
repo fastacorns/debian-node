@@ -13,7 +13,7 @@ RUN apt-get update \
         poppler-utils \
         qpdf \
     && rm -rf /var/lib/apt/lists/* \
-    && npm --global install npm pm2 npx prisma \
+    && npm --global install npm pm2 npx \
     && rm -rf /opt/yarn* \
     && rm -rf /root/.npm \
     && rm -rf /tmp/*
