@@ -1,7 +1,9 @@
 #########################
 # Base image
+# Using Trixie (Debian 13 testing) for Ghostscript 10.05.1+
+# Bookworm's GS 10.0.0 has a bug that crashes on PDF transparency flattening
 #########################
-FROM node:bookworm-slim AS base
+FROM node:22-trixie-slim AS base
 WORKDIR /site
 
 # Install latest security upgrades, and crucial runtimes.
