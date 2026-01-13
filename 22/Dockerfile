@@ -37,6 +37,7 @@ RUN apt-get update \
         curl \
         poppler-utils \
         qpdf \
+        img2pdf \
         # Runtime libraries for Ghostscript
         libpng16-16t64 \
         libjpeg62-turbo \
